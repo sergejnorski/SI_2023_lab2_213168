@@ -11,9 +11,7 @@
 
 <h3>Тест случаи според критериумот Multiple Condition</h3>
 <p>Според овој критериум може да има 4 случаи односно кога имаме:</p>
-<p>- T-X-X<br></p>
-<p>- F-T-X<br></p>
-<p>- F-F-T<br></p>
-<p>- F-F-F<br></p>
-
-
+<p>- T-X-X  ->  ова е случај кога user==null односно се исполнува првиот услов.<br></p>
+<p>- F-T-X  ->  ове е случај кога user.getPassword()==null односно вториот услов се исполнува. Пример: User(sergej, null, sergej@finki.com)<br></p>
+<p>- F-F-T  ->  ова е случај кога user.getEmail()==null однос третиот услов се исполнува. Пример: User(sergej, Norski123!?, null)<br></p>
+<p>- F-F-F  ->  во овој случај ни еден услов од if не се исполнува. Пример: User(sergej, Norski123!?, sergej@finki.com) <br></p>
