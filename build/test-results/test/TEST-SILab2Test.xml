@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SILab2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-28T11:46:06" hostname="NORACNITRO" time="0.015">
+<testsuite name="SILab2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-29T01:20:50" hostname="NORACNITRO" time="0.015">
   <properties/>
-  <testcase name="multipleCondition()" classname="SILab2Test" time="0.015"/>
+  <testcase name="existingUsernameAndEmail()" classname="SILab2Test" time="0.015"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

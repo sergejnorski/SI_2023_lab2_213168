@@ -32,12 +32,61 @@ class SILab2Test {
     }
 
     @Test
-    void evertBranch(){
+    //when user == null then it should throw exception (cover branch : password==null / email==null)
+    void nullUser_ThrowException(){
         RuntimeException ex;
-        //user == null
         ex = assertThrows(RuntimeException.class, () -> SILab2.function(null,setList()));
         assertTrue(ex.getMessage().contains("Mandatory information missing!"));
-
-
     }
+
+    @Test
+    //when username == null then it should set the username same as mail
+    void nullUsername_SetEmailAsUsername(){
+        User user = new User(null,"Norski123?!","sergej@finki.com");
+        SILab2.function(user,setList());
+        assertEquals(user.getUsername(),user.getEmail());
+    }
+
+    @Test
+    //when password contains username and password length < 8
+    void passwordContainsUsername(){
+        User user = new User("sergej","sergej","sergej@finki.com");
+        assertFalse(SILab2.function(user,setList()));
+    }
+
+    @Test
+    void existingUsernameAndEmail(){
+        User user1 = new User("sergej","sergej","sergej@finki.com");
+        User userduplicate1 = new User("sergej","sergej","norski@finki.com");
+        User userduplicate2 = new User("norski","sergej","sergej@finki.com");
+
+        setList().add(userduplicate1);
+        setList().add(userduplicate2);
+
+        assertFalse(SILab2.function(user1,setList()));
+    }
+
+    @Test
+    //when mail doesn't contain . or @
+    void mailNotCorrect(){
+        User user = new User("sergej","Norski123?!","sergejfinkicom");
+        assertFalse(SILab2.function(user,setList()));
+    }
+
+    @Test
+    //when user password doesn't have " " and has special char
+    void correctPassword(){
+        User user = new User("sergej","Norski123?!","sergej@finki.com");
+        assertTrue(SILab2.function(user,setList()));
+    }
+
+    @Test
+    //when user has " " in password
+    void passwordNotCorrect(){
+        User user = new User("sergej","Norski 23?!","sergej@finki.com");
+        assertFalse(SILab2.function(user,setList()));
+    }
+
+
+
 }
