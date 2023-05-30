@@ -40,17 +40,11 @@ class SILab2Test {
     }
 
     @Test
-    //when username == null then it should set the username same as mail
+    //when username == null then it should set the username same as mail and password.Lenght < 8
     void nullUsername_SetEmailAsUsername(){
-        User user = new User(null,"Norski123?!","sergej@finki.com");
+        User user = new User(null,"Norsk1!","sergej@finki.com");
         SILab2.function(user,setList());
         assertEquals(user.getUsername(),user.getEmail());
-    }
-
-    @Test
-    //when password contains username and password length < 8
-    void passwordContainsUsername(){
-        User user = new User("sergej","sergej","sergej@finki.com");
         assertFalse(SILab2.function(user,setList()));
     }
 
